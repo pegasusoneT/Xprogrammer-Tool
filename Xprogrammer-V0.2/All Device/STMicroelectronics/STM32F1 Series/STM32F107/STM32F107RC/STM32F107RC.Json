@@ -1,0 +1,314 @@
+{
+	"Version": 2,
+	"desc": "STM32F2;Config address must Alignment 4byte",
+	"OptionByte": {
+		"Address": "0x1FFFF800",
+		"ByteSize": 16,
+		"Configuration": [
+			{
+				"Read Out Protection": [
+					{
+						"RDP": {
+							"desc": "Read protection option byte. The read protection is used to protect the software code stored in Flash memory",
+							"UI_Type":"select",
+							"Value": [
+								{
+									"0xA5": "0xA5: Flash memory is not read-protected."
+								},
+								{
+									"0x00": "0x00 Flash memory is read-protected."
+								}
+							],
+							"defaultValue":0,
+							"address": "0x1FFFF800",
+							"BitWidth": 8,
+							"BitOffset": 0
+						}
+					}
+				]
+			},
+			{
+				"User Configuration": [
+					{
+						"WDG_SW": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Hardware watchdog"
+								},
+								{
+									"0x01": "Software watchdog"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF800",
+							"BitWidth": 1,
+							"BitOffset": 16
+						}
+					},
+					{
+						"nRST_STOP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Reset generated when entering Stop mode"
+								},
+								{
+									"0x01": "No reset generated"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF800",
+							"BitWidth": 1,
+							"BitOffset": 17
+						}
+					},
+					{
+						"nRST_STDBY": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Reset generated when entering Standby mode"
+								},
+								{
+									"0x01": "No reset generated"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF800",
+							"BitWidth": 1,
+							"BitOffset": 18
+						}
+					}
+				]
+			},
+			{
+				"User Data":[
+					{
+						"Data0":{
+							"desc": "",
+							"UI_Type":"Text",
+							"Value": [
+								{
+									"0xff": "User data 0 (8-bit)"
+								}
+							],
+							"defaultValue":255,
+							"address": "0x1FFFF804",
+							"BitWidth": 8,
+							"BitOffset": 0
+						}
+					},
+					{
+						"Data1":{
+							"desc": "",
+							"UI_Type":"Text",
+							"Value": [
+								{
+									"0xff": "User data 1 (8-bit)"
+								}
+							],
+							"defaultValue":255,
+							"address": "0x1FFFF804",
+							"BitWidth": 8,
+							"BitOffset": 16
+						}
+					}
+				]
+			},
+			{
+				"Write Protection": [
+					{
+						"WRP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Write protection active"
+								},
+								{
+									"0x01": "Write protection not active"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF808",
+							"BitWidth": 8,
+							"BitOffset": 0
+						}
+					},
+					{
+						"WRP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Write protection active"
+								},
+								{
+									"0x01": "Write protection not active"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF808",
+							"BitWidth": 8,
+							"BitOffset": 16
+						}
+					},
+					{
+						"WRP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Write protection active"
+								},
+								{
+									"0x01": "Write protection not active"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF80C",
+							"BitWidth": 8,
+							"BitOffset": 0
+						}
+					},
+					{
+						"WRP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Write protection active"
+								},
+								{
+									"0x01": "Write protection not active"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFF80C",
+							"BitWidth": 8,
+							"BitOffset": 16
+						}
+					}
+				]
+			}
+		],
+		"OtherConfig": [
+			{
+				"desc": "This descripte reserved bits、not used bits and complemented OPT bytes. Address must Alignment 4byte",
+				"0x1FFFF800": [
+					{
+						"Bit8": {
+							"BitWidth": 8,
+							"BitOffset": 8,
+							"Value": {
+								"Address": "0x1FFFF800",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					},
+					{
+						"Bit19": {
+							"BitWidth": 5,
+							"BitOffset": 19,
+							"Value": "0x1F"
+						}
+					},
+					{
+						"Bit24": {
+							"BitWidth": 8,
+							"BitOffset": 24,
+							"Value": {
+								"Address": "0x1FFFF800",
+								"BitOffset": 16,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFF804": [
+					{
+						"Bit8": {
+							"BitWidth": 8,
+							"BitOffset": 8,
+							"Value": {
+								"Address": "0x1FFFF804",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					},
+					{
+						"Bit24": {
+							"BitWidth": 8,
+							"BitOffset": 24,
+							"Value": {
+								"Address": "0x1FFFF804",
+								"BitOffset": 16,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFF808": [
+					{
+						"Bit8": {
+							"BitWidth": 8,
+							"BitOffset": 8,
+							"Value": {
+								"Address": "0x1FFFF808",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					},
+					{
+						"Bit24": {
+							"BitWidth": 8,
+							"BitOffset": 24,
+							"Value": {
+								"Address": "0x1FFFF808",
+								"BitOffset": 16,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFF80C": [
+					{
+						"Bit8": {
+							"BitWidth": 8,
+							"BitOffset": 8,
+							"Value": {
+								"Address": "0x1FFFF80C",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					},
+					{
+						"Bit24": {
+							"BitWidth": 8,
+							"BitOffset": 24,
+							"Value": {
+								"Address": "0x1FFFF80C",
+								"BitOffset": 16,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+}

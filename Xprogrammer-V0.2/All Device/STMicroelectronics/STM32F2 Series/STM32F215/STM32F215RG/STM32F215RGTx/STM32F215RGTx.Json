@@ -1,0 +1,227 @@
+{
+	"Version": 2,
+	"desc": "STM32F2;Config address must Alignment 4byte",
+	"OptionByte": {
+		"Address": "0x1FFFC000",
+		"ByteSize": 16,
+		"Configuration": [
+			{
+				"Read Out Protection": [
+					{
+						"RDP": {
+							"desc": "Read protection option byte. The read protection is used to protect the software code stored in Flash memory",
+							"UI_Type":"select",
+							"Value": [
+								{
+									"0xAA": "Level 0, no protection"
+								},
+								{
+									"0xBB": "or any value other than 0xAA and 0xCC: Level 1, read protection"
+								},
+								{
+									"0xCC": "Level 2, chip protection"
+								}
+							],
+							"defaultValue":0,
+							"address": "0x1FFFC000",
+							"BitWidth": 8,
+							"BitOffset": 8
+						}
+					}
+				]
+			},
+			{
+				"BOR Level": [
+					{
+						"BOR_LEV": {
+							"desc": "These bits contain the supply level threshold that activates/releases the reset.\nThey can be written to program a new BOR level value into Flash memory",
+							"UI_Type":"select",
+							"Value": [
+							    {
+									"0x00": "BOR Level 3 reset threshold level from 2.70 to 3.60 V"
+								},
+								{
+									"0x01": "BOR Level 2 reset threshold level from 2.70 to 3.60 V"
+								},
+								{
+									"0x02": "BOR Level 1 reset threshold level from 2.40 to 2.70 V"
+								},
+								{
+									"0x03": "BOR  OFF    reset threshold level from 1.80 to 2.10 V"
+								}
+							],
+							"defaultValue":3,
+							"address": "0x1FFFC000",
+							"BitWidth": 2,
+							"BitOffset": 2
+						}
+					}
+				]
+			},
+			{
+				"User Configuration": [
+					{
+						"WDG_SW": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Hardware watchdog"
+								},
+								{
+									"0x01": "Software watchdog"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFC000",
+							"BitWidth": 1,
+							"BitOffset": 5
+						}
+					},
+					{
+						"nRST_STOP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Reset generated when entering Stop mode"
+								},
+								{
+									"0x01": "No reset generated"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFC000",
+							"BitWidth": 1,
+							"BitOffset": 6
+						}
+					},
+					{
+						"nRST_STDBY": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Reset generated when entering Standby mode"
+								},
+								{
+									"0x01": "No reset generated"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFC000",
+							"BitWidth": 1,
+							"BitOffset": 7
+						}
+					}
+				]
+			},
+			{
+				"Write Protection": [
+					{
+						"WRP": {
+							"desc": "",
+							"UI_Type":"check",
+							"Value": [
+								{
+									"0x00": "Write protection active"
+								},
+								{
+									"0x01": "Write protection not active"
+								}
+							],
+							"defaultValue":1,
+							"address": "0x1FFFC008",
+							"BitWidth": 12,
+							"BitOffset": 0
+						}
+					}
+				]
+			}
+		],
+		"OtherConfig": [
+			{
+				"desc": "This descripte reserved bits、not used bits and complemented OPT bytes. Address must Alignment 4byte",
+				"0x1FFFC000": [
+					{
+						"Bit0": {
+							"BitWidth": 2,
+							"BitOffset": 0,
+							"Value": "0x3"
+						}
+					},
+					{
+						"Bit4": {
+							"BitWidth": 1,
+							"BitOffset": 4,
+							"Value": "0x1"
+						}
+					},
+					{
+						"Bit16": {
+							"BitWidth": 16,
+							"BitOffset": 16,
+							"Value": {
+								"Address": "0x1FFFC000",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFC004": [
+					{
+						"Bit0": {
+							"BitWidth": 32,
+							"BitOffset": 0,
+							"Value": {
+								"Address": "0x1FFFC000",
+								"BitOffset": 0,
+								"reverse": 0
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFC008": [
+					{
+						"Bit12": {
+							"BitWidth": 4,
+							"BitOffset": 12,
+							"Value": "0xF"
+						}
+					},
+					{
+						"Bit16": {
+							"BitWidth": 16,
+							"BitOffset": 16,
+							"Value": {
+								"Address": "0x1FFFC008",
+								"BitOffset": 0,
+								"reverse": 1
+							}
+						}
+					}
+				]
+			},
+			{
+				"0x1FFFC00C": [
+					{
+						"Bit0": {
+							"BitWidth": 32,
+							"BitOffset": 0,
+							"Value": {
+								"Address": "0x1FFFC008",
+								"BitOffset": 0,
+								"reverse": 0
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+}

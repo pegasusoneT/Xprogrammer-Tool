@@ -1,0 +1,144 @@
+{
+	"Version":1,
+	"dec":"STM32L0;",
+	"Register":{
+		"Item":[
+			{"FLASH_OPTR": "807000AA"},
+			{"FLASH_WRPROT1":"00000000"},
+			{"FLASH_WRPROT2":"00000000"}
+		]
+	},
+	"OptionByteOrg":{
+		"FlashAddr":"1FF80000",
+		"Size":20,
+		"Format":[0,1]
+	},
+	"Configuration":{
+		"ItemNumber":5,
+		"Item":[
+		{"Read Out Protection":{
+				"Item":[
+					{	"RDP":{
+						"Type":"select",
+						"Value":["AA","BB","CC"],
+						"DefaultValue":0,
+						"dsc":"Read Protection option byte \
+The read protection is used to protect the software code stored in Flash memory \
+AA:Level 0,no protection \
+BB:orany value other than 0xAA and 0xCC;Level 1,read protection \
+CC:Level 2,chip protection",
+						"Register":"FLASH_OPTR",
+						"BitsOffset":0,
+						"BitsSize":8
+						}
+					}
+				]
+			}
+		},
+		{"PCROP Protection":{
+				"Item":[
+				{"WPRMOD":{
+					"Type":"check",
+					"Value":["0","1"],
+					"DefaultValue":0,
+					"dsc":"Sector protection mode selection option byte. \
+Unchecked:WRPx bit defines sector write protection \
+Checked  :WRPx bit defines sector read/write(PCROP) protection",
+					"Register":"FLASH_OPTR",
+					"BitsOffset":8,
+					"BitsSize":1
+					}
+				}
+			]
+		}},
+		{"BOR Level":{
+				"Item":[
+				{"BOR_LEV":{
+					"Type":"Select",
+					"Value":["0","1","2","3","4","5","6","7","8","9","A","B","C"],
+					"DefaultValue":0,
+					"dsc":"These bits contain the supply level threshold that activates/releases the reset \
+They can be written to program a new BOR level value into Flash memory \
+0:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+1:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+2:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+3:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+4:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+5:BOR Level OFF,reset level threshold the 1.45V-1.55V \
+6:BOR Level OFF,reset level threshold for 1.45V-1.55V \
+7:BOR Level OFF,reset level threshold for 1.45V-1.55V \
+8:BOR Level 1,reset level threshold for 1.69V-1.8V \
+9:BOR Level 2,reset level threshold for 1.94V-2.1V \
+A:BOR Level 3,reset level threshold for 2.3V-2.49V \
+B:BOR Level 4,reset level threshold for 2.54V-2.74V \
+C:BOR Level 5,reset level threshold for 2.77V-3.0V",
+					"Register":"FLASH_OPTR",
+					"BitsOffset":16,
+					"BitsSize":4
+					}
+				}
+			]
+		}},
+		{"User Configuration":{
+				"Item":[
+					{"IWDG_SW":{
+						"Type":"Check",
+						"Value":["0","1"],
+						"DefaultValue":1,
+						"dsc":"Uchecked:Hardware independant watchdog \
+Checked  :Software independant watchdog",
+						"Register":"FLASH_OPTR",
+						"BitsOffset":20,
+						"BitsSize":1
+					}},
+					{"nRST_STOP":{
+						"Type":"Check",
+						"Value":["0","1"],
+						"DefaultValue":1,
+						"dsc":"Uchecked:Reset generated when entering Stop mode \
+Checked  :No reset generated",
+						"Register":"FLASH_OPTR",
+						"BitsOffset":21,
+						"BitsSize":1
+					}},
+					{"nRST_STDBY":{
+						"Type":"Check",
+						"Value":["0","1"],
+						"DefaultValue":1,
+						"dsc":"Uchecked:Reset generated when entering Standy mode \
+Checked  :No reset generated",
+						"Register":"FLASH_OPTR",
+						"BitsOffset":22,
+						"BitsSize":1
+					}},
+					{"nBOOT1":{
+						"Type":"Check",
+						"Value":["0","1"],
+						"DefaultValue":1,
+						"dsc":"Uchecked:Boot from Flash if BOOT0 = 0,otherwise Embedded SRAM1 \
+Checked  :Boot from FLash if BOOT0 = 0,otherwise system memory",
+						"Register":"FLASH_OPTR",
+						"BitsOffset":31,
+						"BitsSize":1
+					}}
+				]
+				
+		}},
+		{"Write Protection":{
+				"Item":[
+					{"WRPOT%x%":{
+					"RegType":1,
+					"FlashSectorSize":4096,
+					"Type":"Check",
+					"Value":["0","1"],
+					"Register":"FLASH_WRPROT%x%",
+					"DefaultValue":0,
+					"dsc":"Unchecked:Write protection not active \
+Checked  :Write protection active"
+					}
+					}
+				]
+		}}
+		]
+	}
+}
