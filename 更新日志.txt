@@ -1,0 +1,4 @@
+Xprogrammer-V0.1：第一版本
+Xprogrammer-V0.2：解决上一个版本解压后文件占用空间过大。同时添加了STM32F1系列的选项字节支持
+Xprogrammer-V0.3：添加帮助菜单关于选项和帮助文档
+Xprogrammer-V0.4：1、添加支持hex2bin功能。同时支持直接导入hex文件烧写。2、帮助菜单中添加打开最新在线说明文档
